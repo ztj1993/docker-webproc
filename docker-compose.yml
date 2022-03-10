@@ -1,0 +1,25 @@
+version: "3"
+services:
+
+  webproc:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - GITHUB_MIRROR=https://hub.fastgit.xyz
+    image: ztj1993/webproc:latest
+    command: webproc /srv/webproc.toml
+    hostname: webproc
+    container_name: webproc
+    network_mode: bridge
+    environment:
+      - PORT=8081
+      - HTTP_USER=admin
+      - HTTP_PASS=123456
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./webproc.toml:/srv/webproc.toml
+    expose:
+      - 8081/tcp
+    ports:
+      - 8081/tcp

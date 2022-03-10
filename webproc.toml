@@ -1,0 +1,10 @@
+ProgramArgs = [
+    "ping",
+    "127.0.0.1",
+]
+
+ConfigurationFiles = [
+    "/etc/hosts",
+]
+
+OnSave = "continue"
